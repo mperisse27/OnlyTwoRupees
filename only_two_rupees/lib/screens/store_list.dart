@@ -15,7 +15,7 @@ class _StoreListPageState extends State<StoreListPage> {
   List<Store> storeList = [];
 
   void loadStoreList() async {
-    var newStores = await SecureStorageManager.readStoreList('storeList');
+    var newStores = await SecureStorageManager.readStoreList();
     setState(() {
       storeList = newStores;
     });
@@ -34,22 +34,18 @@ class _StoreListPageState extends State<StoreListPage> {
       appBar: AppBar(
         title: const Text('OnlyTwoRupees'),
         backgroundColor: Colors.blue,
+        actions: [
+          IconButton(onPressed: loadStoreList, icon: const Icon(Icons.refresh)),
+        ],
       ),
       body: ListView(
-        children: <Widget>[
-          ListTile(
-            title: const Text('Store 0'),
-            onTap: () {
-              // Navigator.of(context).pushNamed('/details');
-            },
-          ),
-          ListTile(
-            title: const Text('Store 2'),
-            onTap: () {
-              // Navigator.of(context).pushNamed('/details');
-            },
-          ),
-        ],
+        children: storeList.map((store) => ListTile(
+          title: Text(store.name),
+          subtitle: Text('Credit: ${store.credit}'),
+          onTap: () {
+            context.go('/details/${store.uuid}');
+          },
+        )).toList(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.go('/add'),
