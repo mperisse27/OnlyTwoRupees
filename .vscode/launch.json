@@ -5,8 +5,8 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "only_two_rupees",
-            "cwd": "only_two_rupees",
+            "name": "tricount_helper",
+            "cwd": "tricount_helper",
             "request": "launch",
             "type": "dart"
         },

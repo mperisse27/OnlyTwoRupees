@@ -31,13 +31,6 @@ class _StoreListPageState extends State<StoreListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('OnlyTwoRupees'),
-        backgroundColor: Colors.blue,
-        actions: [
-          IconButton(onPressed: loadStoreList, icon: const Icon(Icons.refresh)),
-        ],
-      ),
       body: ListView(
         children: storeList.map((store) => ListTile(
           title: Text(store.name),

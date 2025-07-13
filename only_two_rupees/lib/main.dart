@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:only_two_rupees/screens/add_store.dart';
+import 'package:only_two_rupees/screens/home.dart';
 import 'package:only_two_rupees/screens/store_details.dart';
 import 'package:only_two_rupees/screens/store_list.dart';
 
@@ -25,7 +26,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const StoreListPage();
+        return HomeScreen();
       },
       routes: <RouteBase>[
         GoRoute(

@@ -63,50 +63,50 @@ class _StoreDetailsPageState extends State<StoreDetailsPage> {
       return const Scaffold(body: Text('Error'));
     }
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("OnlyTwoRupees"),
-          backgroundColor: Colors.blue,
-        ),
-        body: isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image(
-                      width: 200,
-                      height: 200,
-                      image: AssetImage(
-                        getImageFromStoreType(store.storeType),
-                      )
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    Text(store.name, style: const TextStyle(fontSize: 48)),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    Row(
-                      children: [
-                        const Text(
-                          'Credit: ',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                        SizedBox(
-                          width: 120,
-                          child: TextField(
-                              controller: _creditController,
-                              style: const TextStyle(fontSize: 24)),
-                        ),
-                        IconButton(
-                            onPressed: () =>
-                                editCredit(store, _creditController.text),
-                            icon: const Icon(Icons.check))
-                      ],
-                    ),
-                  ],
+      appBar: AppBar(
+        title: const Text("OnlyTwoRupees"),
+        backgroundColor: Colors.blue,
+      ),
+      body: isLoading
+      ? const Center(child: CircularProgressIndicator())
+      : Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image(
+              width: 200,
+              height: 200,
+              image: AssetImage(
+                getImageFromStoreType(store.storeType),
+              )
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            Text(store.name, style: const TextStyle(fontSize: 48)),
+            const SizedBox(
+              height: 24,
+            ),
+            Row(
+              children: [
+                const Text(
+                  'Credit: ',
+                  style: TextStyle(fontSize: 24),
                 ),
-              ));
+                SizedBox(
+                  width: 120,
+                  child: TextField(
+                      controller: _creditController,
+                      style: const TextStyle(fontSize: 24)),
+                ),
+                IconButton(
+                    onPressed: () =>
+                        editCredit(store, _creditController.text),
+                    icon: const Icon(Icons.check))
+              ],
+            ),
+          ],
+        ),
+      ));
   }
 }
