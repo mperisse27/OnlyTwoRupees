@@ -40,7 +40,7 @@ class _ComputeAmountsPageState extends State<ComputeAmountsPage> {
                 flex: 2,
                 child: TextField(
                   controller: dishes[i].priceController,
-                  decoration: InputDecoration(labelText: "Dish ${i + 1}"),
+                  decoration: InputDecoration(labelText: "Price ${i + 1}"),
                 ),
               ),
               const SizedBox(width: 8),
@@ -76,6 +76,24 @@ class _ComputeAmountsPageState extends State<ComputeAmountsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Only 2 Rupees', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+        backgroundColor: Colors.green,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              setState(() {
+                dishesJoris = [DishPrice()];
+                dishesLouis = [DishPrice()];
+                dishesMatteo = [DishPrice()];
+                dishesVincent = [DishPrice()];
+                totalController.clear();
+              });
+            },
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(8),
         child: Form(
@@ -184,7 +202,7 @@ class _ComputeAmountsPageState extends State<ComputeAmountsPage> {
 
 class DishPrice {
   TextEditingController priceController = TextEditingController();
-  TextEditingController partController = TextEditingController(text: "100");
+  TextEditingController partController = TextEditingController(text: "1");
 
   void dispose() {
     priceController.dispose();
